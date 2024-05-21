@@ -1,0 +1,1 @@
+.navbar{width:100%;background-color:transparent;color:#fff;position:absolute;height:135px}.sticky{position:fixed;top:0;width:100%;z-index:1000}.iconYT{border-radius:50%}.iconYT:hover{background-color:rgba(255,255,255,.31)}@media (max-width:900px){.navbar{height:80px!important}.NavWeb{display:none!important}}@media (min-width:900px){.NavCel{display:none!important}}

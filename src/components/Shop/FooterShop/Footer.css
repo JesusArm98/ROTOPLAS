@@ -1,0 +1,263 @@
+/*ESTILOS GENERALES*/
+.footerShop{
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*SECCION Productos*/
+.seccionProductos{
+    width: 100%;
+    margin: 0;
+    height: 100%;
+    background-color: #1B1C3C;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.productosLista{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+}
+.productosLista button{
+    background-color: transparent;
+    border: none;
+    height: 45px;
+    width: 300px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+}
+.productosLista a{
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    justify-content: center;
+    text-decoration: none;
+}
+
+
+/*SECCION Servicios*/
+.seccionServicios{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #1B1C3C;
+}
+.servicios{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+}
+.servicios button{
+    background-color: transparent;
+    border: none;
+    height: 45px;
+    width: 300px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 5px;
+}
+.servicios button img {
+    max-width: 100%;
+    height: auto;
+    padding-right: 10px;
+}
+.servicios a{
+    text-decoration: none;
+    color: white;
+}
+
+
+/*SECCION Redes*/
+.seccionContactosShop{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #1B1C3C;
+}
+.inicioFooter{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.inicioFooter a{
+    text-decoration: none;
+}
+.inicioFooter button{
+    height: 45px;
+    width: 200px;
+    border-radius: 50px;
+    border: 1px solid white;
+    color: #fff;
+    background-color: transparent;
+    cursor: pointer;
+    justify-content: center; 
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    transition: 0.3s ease;
+}
+.inicioFooter button:hover{
+    background-color: gray;
+    opacity: 0.3;
+    transition: 0.3s ease;
+}
+.inicioFooter button img{
+    max-width: 100%;
+    height: 20px;
+    padding-right: 10px;
+}
+.contactosShop{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.redesShop{
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.redesShop button{
+    height: 45px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid white;
+    color: #fff;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.5s ease, opacity 0.5s ease;
+}
+.redesShop button:hover{
+    background-color: gray;
+    opacity: 0.3;
+    transition: background-color 0.5s ease, opacity 0.5s ease;
+}
+#tituloRedesShop{
+    margin: 0;
+    text-align: center;
+}
+
+
+/*AVISO DE PRIVACIDAD*/
+.avisoPrivacidadShop button{
+    height: 100%;
+    background-color: #1B1C3C;
+    color: #fff;
+    font-style: italic;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+    border-top: 1px solid white;
+}
+.avisoPrivacidadShop {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-style: italic;
+    background-color: #1B1C3C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ p{
+    text-align: justify;
+}
+#dialogShop h3{
+    color: #00699b;
+}
+
+@media screen and (min-width:768px) and (max-width:899px) {
+    .contactosShop{
+        width: 60%;
+    }
+    .footerShop{
+        height: 30vh;
+    }
+    .productosLista{
+        height: 100%;
+        border-right: none;
+        align-items: center;
+        text-align: center;
+    }
+    .productosLista img{
+        height: 60px;
+        width: 60px;
+    }
+    .servicios{
+        height: 100%;
+        border-right: none;
+        align-items: center;
+        text-align: center;
+    }
+    .servicios button{
+        justify-content: center;
+    }
+    .inicioFooter button img{
+        padding-right: 20px;
+    }
+    .seccionProductos h2{
+        margin-top: 0;
+    }
+    .seccionServicios h2{
+        margin-top: 0;
+    }
+
+}
+@media screen and (max-width:767px) {
+    .footerShop{
+        height: 40vh;
+    }
+    .productosLista{
+        height: 100%;
+        border-right: none;
+        align-items: center;
+        text-align: center;
+    }
+    .servicios{
+        height: 100%;
+        border-right: none;
+        align-items: center;
+        text-align: center;
+    }
+    .servicios button{
+        justify-content: center;
+    }
+    .seccionLogo img{
+        height: 150px;
+    }
+
+
+}
+
+@media screen and (min-width:899px) and (max-width:1024px) {
+    .inicioFooter button img{
+        padding-right: 5px;
+    }
+}

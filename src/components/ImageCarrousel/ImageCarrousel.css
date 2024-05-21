@@ -1,0 +1,9 @@
+.carousel-image {
+    filter: grayscale(100%); 
+    transition: filter 0.3s ease; 
+  }
+  
+  .carousel-image:hover {
+    filter: none; 
+  }
+  

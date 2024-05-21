@@ -1,0 +1,75 @@
+#app,
+body,
+html {
+    height: 100%;
+}
+.slideText,
+body {
+    font-family: Raleway;
+    border-radius: 25px;
+}
+.shadow-effect,
+.slideText,
+.swiper,
+body {
+    border-radius: 25px;
+}
+body,
+html {
+    position: relative;
+}
+body {
+    background: #eee;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 400px;
+    border-radius: 25px;
+}
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    min-width:  320px;
+}
+.slideContent {
+    position: relative;
+    text-align: center;
+}
+.slideText {
+    position: absolute;
+    bottom: 20px;
+    width: fit-content;
+    left: 32px;
+    font-weight: 600;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+.shadow-effect {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease-in-out;
+    width: 600px;
+    height: 45%;
+}
+.swiper-slide:hover .shadow-effect {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 900px) {
+    .swipper {
+        width: 900px !important;
+    }
+}
+
+
+
+

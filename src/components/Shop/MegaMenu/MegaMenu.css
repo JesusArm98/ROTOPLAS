@@ -1,0 +1,167 @@
+/* MegaMenu.css */
+.navbarTiendaWeb {
+  position: fixed;
+  top: 0;
+  margin: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #1B1C3C; /* Ajusta este valor para que coincida con el de tus imágenes */
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0;
+  z-index: 1000; /* Esto asegura que el navbar se mantenga sobre otros contenidos */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Opcional: añade sombra para un efecto elevado */
+}
+.horizontalMenu {
+  display: flex;
+  flex-direction: row; /* Alinear elementos horizontalmente */
+  justify-content: center; /* Centrar los elementos horizontalmente */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.horizontalMenu li {
+  padding: 10px;
+}
+.inicioSesion a{
+  text-decoration: none;
+}
+.inicioSesion button{
+  height: 45px;
+  width: 200px;
+  border-radius: 50px;
+ border-color: #FFFFFF;
+  color: #fff;
+  background-color: transparent;
+  cursor: pointer;
+  justify-content: center; 
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  transition: 0.3s ease;
+}
+
+.inicioSesion button img{
+  max-width: 100%;
+  height: 20px;
+  padding-right: 20px;
+}
+  
+  .navbarTiendaWeb ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  
+  .navbarTiendaWeb li {
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    list-style: none;
+  }
+  
+  .mega-menu {
+    transition: all 0.5s ease-in-out;
+    transform: scaleY(0);
+    transform-origin: top;
+    height: 0;
+    visibility: hidden;
+  }
+  
+  .navbarTiendaWeb li:hover .mega-menu {
+    transform: scaleY(1);
+    height: auto; /* Ajusta según el contenido */
+    visibility: visible;
+  }
+  
+  .menu-options {
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  
+  .menu-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    padding: 20px;
+  }
+  .menu-detail img {
+    display: block; /* Asegura que la imagen se trate como un bloque para centrarla correctamente */
+    margin: 0 auto; /* Esto añade margen automático en los lados, centrando la imagen */
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+  }
+  .navbarTiendaWeb li:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+  .detalles{
+    width: 60%;
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .capacidades{
+    width: 80%;
+    margin: auto;
+  }
+  .capacidades th {
+    padding-right: 20px;
+  }
+  .capacidades td{
+    padding-bottom: 80px;
+  }
+  .detallesTecnicos{
+    padding: 20px 0 20px 0;
+    width: 60%;
+    justify-content: space-evenly;
+    display: flex;
+  }
+  
+   .typographyMenu{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .buttonMenuShop{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items:center;
+  }
+
+  .MuiButtonBase-root .MuiButton-root .MuiButton-h6 .MuiButton-h6Primary .MuiButton-sizeMedium .MuiButton-h6SizeMedium .MuiButton-colorPrimary .MuiButton-root .MuiButton-h6 .MuiButton-h6Primary .MuiButton-sizeMedium .MuiButton-h6SizeMedium .MuiButton-colorPrimary .css-12w8dut-MuiButtonBase-root-MuiButton-root{
+    border-top: #1B1C3C;
+  }
+
+  
+
+  @media screen and (max-width:900px) {
+    .navbarTiendaWeb{
+      display: none;
+    }
+
+    @media screen and (min-width:900px) {
+      .menuMovil{
+        display: none;
+        padding: 0;
+      }
+    
+  }
+}
+  
