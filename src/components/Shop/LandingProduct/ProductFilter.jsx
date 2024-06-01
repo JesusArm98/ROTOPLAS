@@ -35,28 +35,23 @@ const ProductFilter = ({ products, setImagenes, descripcion }) => {
     new Set(products.map((product) => product.color))
   );
 
-  // Obtener valores únicos de colores
+  // Obtener valores únicos de cisternas
   const availableCisternas = Array.from(
     new Set(products.map((product) => product.nombre))
   );
 
-  console.log(availableCisternas);
-  console.log(availableColors);
-
   const filtrarProducto = (productos, ref, color) => {
     if (containsCisterna) {
-      // Lógica alternativa si containsCisterna es true
       return productos.find(
         (producto) => producto.nombre.toUpperCase() === equipada.toUpperCase()
       );
     } else {
-      // Lógica original si containsCisterna es false
       return productos.find(
         (producto) =>
           (ref === "SIN REF"
             ? producto.refuerzo === "STD"
             : producto.refuerzo === ref) &&
-          producto.color.toUpperCase() === color.toUpperCase()
+          producto.color?.toUpperCase() === color.toUpperCase()
       );
     }
   };
@@ -68,7 +63,7 @@ const ProductFilter = ({ products, setImagenes, descripcion }) => {
     } else {
       setImagenes([]);
     }
-  }, [ref, color, products]);
+  }, [ref, color, products, equipada]);
 
   const productoFiltrado = filtrarProducto(products, ref, color);
 
@@ -78,12 +73,12 @@ const ProductFilter = ({ products, setImagenes, descripcion }) => {
       currency: "MXN",
     }).format(amount);
   };
-
-  const precioConFormato = formatCurrency(productoFiltrado.precio.cantidad);
+  const precioConFormato = productoFiltrado
+    ? formatCurrency(productoFiltrado.precio.cantidad)
+    : "";
 
   return (
     <div style={{ marginLeft: "48px" }}>
-      {console.log(productoFiltrado)}
       {productoFiltrado ? (
         <div>
           <Typography
@@ -160,7 +155,6 @@ const ProductFilter = ({ products, setImagenes, descripcion }) => {
                 fontSize: "38px",
                 marginBottom: "14px",
                 fontWeight: "Bold",
-
                 color: "#002C72",
               }}
               className="PrecioLanding"
@@ -209,7 +203,7 @@ const ProductFilter = ({ products, setImagenes, descripcion }) => {
                       <button
                         key={refuerzo}
                         className={`ref-button ${
-                          ref === refuerzo ? "selected" : ""
+                          equipada === refuerzo ? "selected" : ""
                         }`}
                         onClick={() => setEquipada(refuerzo)}
                       >
@@ -218,9 +212,7 @@ const ProductFilter = ({ products, setImagenes, descripcion }) => {
                     ))}
                   </div>
                 </>
-              ) : null}
-
-              {containsCisterna ? null : (
+              ) : (
                 <>
                   Tipos de tanque:
                   <div className="refuerzo-selector">
@@ -242,8 +234,6 @@ const ProductFilter = ({ products, setImagenes, descripcion }) => {
               )}
             </Typography>
             <Typography component={"label"} sx={{ fontFamily: "Raleway" }}>
-              {/* {productoFiltrado.color} */}
-
               <Box
                 className="color-selector"
                 sx={{ display: "flex", alignItems: "center" }}

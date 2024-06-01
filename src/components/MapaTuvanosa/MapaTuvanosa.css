@@ -1,1 +1,121 @@
-.leaflet-container{height:80vh;width:100%}.cluster-icon{background-color:red;height:2em;width:2em;color:#fff;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:1.2rem;box-shadow:0 0 0 5px #fff}h4{color:#07417b}.leaflet-control-attribution{display:none}@media screen and (max-width:767px){.popup h4,.popup p{width:80%}.leaflet-container{height:100vh}.popup img{display:flex;margin:auto}.popup p{text-align:left}}
+.leaflet-container {
+  font-family: "Raleway" !important;
+  height: 90vh;
+  width: 100%;
+}
+
+.leaflet-popup-content {
+  font-size: 1.2em;
+  margin: 0 !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button{
+  position: absolute;
+  top: 10px !important;
+  right: 10px !important;
+}
+
+.leaflet-popup-content-wrapper {
+  padding: 0px !important;
+}
+
+.css-10hburv-MuiTypography-root{
+  font-family: 'Raleway' !important;
+  line-height: 1 !important;
+}
+
+.css-eqpfi5-MuiAccordionSummary-content {
+  padding: 0px !important;
+  margin: 0px !important;
+  display: flex;
+  align-items: center;
+}
+
+.somosDesc {
+  z-index: 1003; /* Asegúrate de que sea visible sobre el mapa */
+  background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente para mejor visibilidad */
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  position: absolute;
+  top: 10px !important;
+  right: 10px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px; /* Asegúrate de que el tamaño sea suficiente para el icono */
+  height: 30px;
+  background-color: white; /* Fondo blanco para el botón */
+  border-radius: 50%; /* Para hacer un círculo */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra opcional */
+}
+
+.leaflet-container a.leaflet-popup-close-button span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black !important;
+  background-color: #ffffff !important;
+  border-radius: 50%;
+  font-size: 16px !important;
+  width: 100%; /* Asegúrate de que el span ocupe todo el contenedor */
+  height: 100%;
+  line-height: 30px; /* Alinea verticalmente el contenido dentro del contenedor */
+}
+
+.cluster-icon {
+  background-color: red;
+  height: 2em;
+  width: 2em;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  box-shadow: 0 0 0 5px #fff;
+}
+
+/* Archivo: MapaTuvanosa.css */
+.popup {
+  max-height: 500px; /* Ajusta según sea necesario */
+  z-index:2000 !important;
+  position: relative;
+}
+
+.accordion-summary-fixed {
+  background-color: #f7f7f7; /* Fondo opcional para distinguir las secciones */
+}
+
+/* Opcional: estilo para el contenido del acordeón */
+.accordion-details {
+  background-color: #ffffff;
+}
+
+h4 {
+  color: #07417b;
+}
+
+.leaflet-control-attribution {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .popup h4,
+  .popup p {
+    width: 100%;
+    margin: auto;
+  }
+  .leaflet-container {
+    height: 95vh;
+  }
+  .popup img {
+    display: flex;
+    margin: auto;
+  }
+  .popup p {
+    text-align: left;
+  }
+}

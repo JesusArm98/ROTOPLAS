@@ -15,11 +15,12 @@ const Header = () => {
   };
 
   return (
-    <div className="Header">
+    <div className="Header" id="headerTVN">
       <h1 className="TitleHeader">TUVANOSA</h1>
 
       <h2 className="SubTitleHeader">
-        Somos la empresa líder en soluciones para conducción de fluidos
+        Especialistas en control y conducción de fluidos. Calidad, servicio y
+        precios justos para soluciones confiables en la industria.
       </h2>
 
       <Button
@@ -33,7 +34,8 @@ const Header = () => {
           height: "45px",
           transition: "background-color 0.3s ease",
           borderColor: "#FFFFFF",
-          borderRadius: "8px",
+          borderRadius: "30px",
+          zIndex: 1,
           "&:hover": {
             backgroundColor: "rgba(255, 255, 255, 0.3)",
             borderColor: "#FFFFFF",

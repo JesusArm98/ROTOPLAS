@@ -1,1 +1,1 @@
-.HeaderMenu{width:100%;background-color:#000;height:8vh;display:flex;justify-content:center;align-items:center}@media (max-width:900px){.IconHeader{font-size:14px!important}#HeaderText{font-size:6px}}
+.HeaderMenu{width:100%;background-color:#000;height:8vh;display:flex;justify-content:center;align-items:center}@media (max-width:900px){.IconHeader{font-size:14px!important}#HeaderText{font-size:6px}.HeaderMenu{display:none}}

@@ -7,84 +7,104 @@ import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
 const HeaderMenu = () => {
   return (
     <div className="HeaderMenu" style={{ justifyContent: "space-evenly" }}>
-      <Button
-        variant="outlined"
-        sx={{
-          color: "#FFFFFF",
-          transition: "background-color 0.3s ease",
-          borderColor: "#FFFFFF",
-          borderRadius: "8px",
-          "&:hover": {
-            backgroundColor: "rgba(255, 255, 255, 0.31)",
-            borderColor: "#FFFFFF",
-            "& .text": {
-              transform: "scale(0.90)",
-              transition: "transform 0.2s ease, filter 0.2s ease",
-            },
-          },
-        }}
+      <a
+        href="https://tuvanosa.pandape.computrabajo.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ textDecoration: "none" }}
       >
-        <span
-          id="HeaderText"
-          className="text"
-          style={{ display: "flex", gap: 10 }}
+        <Button
+          variant="outlined"
+          sx={{
+            color: "#FFFFFF",
+            transition: "background-color 0.3s ease",
+            borderColor: "#FFFFFF",
+            borderRadius: "30px",
+            "&:hover": {
+              backgroundColor: "rgba(255, 255, 255, 0.31)",
+              borderColor: "#FFFFFF",
+              "& .text": {
+                transform: "scale(0.90)",
+                transition: "transform 0.2s ease, filter 0.2s ease",
+              },
+            },
+          }}
         >
-          <WorkOutlineOutlinedIcon className="IconHeader" /> Bolsa de trabajo
-        </span>
-      </Button>
+          <span
+            id="HeaderText"
+            className="text"
+            style={{ display: "flex", gap: 10 }}
+          >
+            <WorkOutlineOutlinedIcon className="IconHeader" /> Bolsa de trabajo
+          </span>
+        </Button>
+      </a>
 
-      <Button
-        variant="outlined"
-        sx={{
-          color: "#FFFFFF",
-          transition: "background-color 0.3s ease",
-          borderColor: "#FFFFFF",
-          borderRadius: "8px",
-          "&:hover": {
-            backgroundColor: "rgba(255, 255, 255, 0.31)",
-            borderColor: "#FFFFFF",
-            "& .text": {
-              transform: "scale(0.90)",
-              transition: "transform 0.2s ease, filter 0.2s ease",
-            },
-          },
-        }}
+      <a
+        href="https://portal.tuvanosa.net/proveedores/inicio"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ textDecoration: "none" }}
       >
-        <span
-          id="HeaderText"
-          className="text"
-          style={{ display: "flex", gap: 10 }}
+        <Button
+          variant="outlined"
+          sx={{
+            color: "#FFFFFF",
+            transition: "background-color 0.3s ease",
+            borderColor: "#FFFFFF",
+            borderRadius: "30px",
+            "&:hover": {
+              backgroundColor: "rgba(255, 255, 255, 0.31)",
+              borderColor: "#FFFFFF",
+              "& .text": {
+                transform: "scale(0.90)",
+                transition: "transform 0.2s ease, filter 0.2s ease",
+              },
+            },
+          }}
         >
-          {" "}
-          <HandshakeOutlinedIcon className="IconHeader" /> Proovedores
-        </span>
-      </Button>
+          <span
+            id="HeaderText"
+            className="text"
+            style={{ display: "flex", gap: 10 }}
+          >
+            <HandshakeOutlinedIcon className="IconHeader" /> Proveedores
+          </span>
+        </Button>
+      </a>
 
-      <Button
-        variant="outlined"
-        sx={{
-          color: "#FFFFFF",
-          transition: "background-color 0.3s ease",
-          borderColor: "#FFFFFF",
-          borderRadius: "8px",
-          "&:hover": {
-            backgroundColor: "rgba(255, 255, 255, 0.31)",
-            borderColor: "#FFFFFF",
-            "& .text": {
-              transform: "scale(0.90)",
-              transition: "transform 0.2s ease, filter 0.2s ease",
-            },
-          },
-        }}
+      <a
+        href="https://portal.tuvanosa.net/clientes/inicio"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ textDecoration: "none" }}
       >
-        <span
-          id="HeaderText"
-          className="text"
-          style={{ display: "flex", gap: 10 }}
+        <Button
+          variant="outlined"
+          sx={{
+            color: "#FFFFFF",
+            transition: "background-color 0.3s ease",
+            borderColor: "#FFFFFF",
+            borderRadius: "30px",
+            "&:hover": {
+              backgroundColor: "rgba(255, 255, 255, 0.31)",
+              borderColor: "#FFFFFF",
+              "& .text": {
+                transform: "scale(0.90)",
+                transition: "transform 0.2s ease, filter 0.2s ease",
+              },
+            },
+          }}
         >
-          <FaceOutlinedIcon className="IconHeader" /> Área de Clientes
-        </span>
-      </Button>
+          <span
+            id="HeaderText"
+            className="text"
+            style={{ display: "flex", gap: 10 }}
+          >
+            <FaceOutlinedIcon className="IconHeader" /> Clientes
+          </span>
+        </Button>
+      </a>
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Dialog, DialogContent, DialogTitle } from "@mui/material";
-import { Grid } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
+import { Dialog, DialogContent, DialogTitle, Grid } from "@mui/material";
 import "./Footer.css";
 import LoginForm from "../../SignIn";
 
@@ -11,8 +10,9 @@ function FooterShop() {
   const [envio, setEnvio] = useState(false);
   const [preguntas, setPreguntas] = useState(false);
   const [devoluciones, setDevoluciones] = useState(false);
-
   const [loginOpen, setLoginOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleLoginDialogOpen = () => {
     setLoginOpen(true);
@@ -20,59 +20,59 @@ function FooterShop() {
   const handleLoginDialogClose = () => {
     setLoginOpen(false);
   };
-
   const handleCloseDevoluciones = () => {
     setDevoluciones(false);
   };
-
   const handleOpenDevoluciones = () => {
     setDevoluciones(true);
   };
-
   const handleClosePreguntas = () => {
     setPreguntas(false);
   };
-
   const handleOpenPreguntas = () => {
     setPreguntas(true);
   };
-
   const handleCloseEnvio = () => {
     setEnvio(false);
   };
-
   const handleOpenEnvio = () => {
     setEnvio(true);
   };
-
   const handleCloseTermino = () => {
     setTermino(false);
   };
-
   const handleOpenTermino = () => {
     setTermino(true);
   };
-
   const handleClosePrivacidad = () => {
     setAviso(false);
   };
-
   const handleOpenPrivacidad = () => {
     setAviso(true);
   };
+  const handleCategoryClick = (tipo) => {
+    const newPath = `/tienda/${tipo.toUpperCase()}`;
+    if (window.location.pathname !== newPath) {
+      navigate(newPath);
+    }
+  };
 
   return (
-    <div className="footer-container">
+    <div className="footer-container" id="footerShop">
       <Grid className="footerShop" container sx={{ padding: "0", margin: "0" }}>
         <Grid item xs={12} md={4} style={{ height: "85%" }}>
           <div className="seccionProductos">
             <div className="productosLista">
-              <h2 style={{ color: "white" }}>Productos de Almacenamiento</h2>
-              <a href="#sucursal">Cisternas</a>
-              <a href="#coordinaciones">Tanques de Almacenamiento</a>
-              <a href="#sucursal">Tolvas</a>
-              <a href="#coordinaciones">Nodrizas</a>
-              <a href="#sucursal">Captador Plubial Rural</a>
+              <h2 style={{ color: "white" }}>Productos</h2>
+              <a onClick={() => handleCategoryClick("Cisternas")}>Cisternas</a>
+              <a onClick={() => handleCategoryClick("Tanques")}>
+                Tanques de Almacenamiento
+              </a>
+              <a onClick={() => handleCategoryClick("Tolvas")}>Tolvas</a>
+              <a onClick={() => handleCategoryClick("Nodrizas")}>Nodrizas</a>
+              <a onClick={() => handleCategoryClick("Captador")}>
+                Captador Plubial Rural
+              </a>
             </div>
           </div>
         </Grid>
@@ -264,7 +264,7 @@ function FooterShop() {
                   color: "white",
                 }}
               >
-                <h2>Aviso de privacidad Tuvanosa</h2>
+                <h2>Aviso de privacidad</h2>
               </DialogTitle>
               <DialogContent style={{ textAlign: "justify" }} id="dialog">
                 <h3>Información general</h3>

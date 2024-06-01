@@ -1,10 +1,14 @@
 .TituloBarra{
     color: #002C72;
     font-weight: bold;
-    font-size: 22px;
-    margin-top: 36px;
+    font-size: 20px;
+    margin-top: 16px;
     width: 86%;
     border-top: 2px;
+}
+
+.cardCategoria{
+    margin-top: 104px;
 }
 
 .Borde{
@@ -13,12 +17,12 @@
 }
 
 .li-Categoria{
-    font-size: 18px;
+    font-size: 17px;
    font-weight: 400;
    list-style-type: none; 
   margin: 0;              
   padding: 0;
-  margin-top: 6px;             
+  margin-top: 05px;             
 }
 
 .ul-Categoria{
@@ -36,7 +40,36 @@
         width: 320px;
      margin:  24px 24px 0px 0px;
         border-radius: 15px;
-        box-shadow: 3px 2px 15px 4px rgba(0, 0, 0, 0.15)
-        
-      
+        box-shadow: 3px 2px 15px 4px rgba(77, 50, 50, 0.15) 
+}
+
+.productoGen{
+    margin-left: 260px;
+}
+
+@media screen and (min-width:900px) {
+    .filtroCategoria{
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width:900px) {
+    .cardCategoria{
+        margin-top: 105px;
+        margin-left: 0px !important; 
+    }    
+    .filtros{
+        display: none;
+    }
+    .productoGen{
+        margin-left: 0 !important
+    }
+
+}
+
+@media screen and (max-width:650px){
+    .CardsCategorias{
+        margin:  24px 0px 0px 0px;
+    }
 }

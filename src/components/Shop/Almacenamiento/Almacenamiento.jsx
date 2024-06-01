@@ -207,7 +207,7 @@ export const Almacenamiento = ({ categoria, setCategoria }) => {
           <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
             <Button
               variant="contained"
-              onClick={() => navigate(`/Tienda/${categoria}`)}
+              onClick={() => navigate(`/tienda/${categoria}`)}
               sx={{
                 fontFamily: "Raleway",
                 fontWeight: "700",

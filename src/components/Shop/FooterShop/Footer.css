@@ -24,7 +24,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items:  start;
     justify-content: space-evenly;
 }
 .productosLista button{
@@ -35,6 +35,7 @@
     color: #ffffff;
     font-size: 16px;
     cursor: pointer;
+    text-align: left;
 }
 .productosLista a{
     color: #ffffff;
@@ -132,7 +133,7 @@
     padding-right: 10px;
 }
 .contactosShop{
-    width: 50%;
+    width: 70%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -140,7 +141,7 @@
     justify-content: space-evenly;
 }
 .redesShop{
-    width: 80%;
+    width: 70%;
     display: flex;
     justify-content: space-evenly;
 }
@@ -206,6 +207,9 @@
         align-items: center;
         text-align: center;
     }
+    .productosLista button{
+        text-align: center;
+    }
     .productosLista img{
         height: 60px;
         width: 60px;
@@ -231,6 +235,9 @@
 
 }
 @media screen and (max-width:767px) {
+    .productosLista button{
+        text-align: center;
+    }
     .footerShop{
         height: 40vh;
     }

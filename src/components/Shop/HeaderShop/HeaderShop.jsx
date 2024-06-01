@@ -5,11 +5,9 @@ import { Dialog } from "@mui/material";
 
 function HeaderNoticia() {
   const [open, setOpen] = useState(false);
-
   const handleClose = () => {
     setOpen(false);
   };
-
   const handleOpen = () => {
     setOpen(true);
   };

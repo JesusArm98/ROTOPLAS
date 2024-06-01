@@ -1,7 +1,20 @@
 import "./MapaTuvanosa.css";
 import "leaflet/dist/leaflet.css";
+import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
+import PhoneIcon from "@mui/icons-material/Phone";
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Typography,
+  ListItemText,
+  List,
+  ListItem,
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import QueryBuilderIcon from "@mui/icons-material/QueryBuilder";
 
 const sucursalesIcon = new Icon({
   iconUrl: "/images/MapaTuvanosa/sucursales_location.svg",
@@ -18,6 +31,7 @@ const puntoIcon = new Icon({
   iconSize: [30, 30], // size of the icon
 });
 
+//JSON MAPA DE TUVANOSA
 const markers = [
   {
     id: 0,
@@ -46,6 +60,15 @@ const markers = [
       },
     ],
     geocode: [32.6139299, -115.3894043],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 1,
@@ -75,6 +98,15 @@ const markers = [
       },
     ],
     geocode: [32.4638519, -116.8099899],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 2,
@@ -95,13 +127,22 @@ const markers = [
       },
     ],
     geocode: [31.809895, -116.5965271],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 3,
     ciudad: "CIUDAD JUÁREZ",
     direccion:
       "Av. de las Torres y Calle A #1675, Col. Torres del PRICiudad Juárez, Chihuahua.",
-    type: "sucursal",
+    type: "punto",
     imagen: "/images/MapaTuvanosa/TVN Juarez.webp",
     maps: "https://www.google.com.mx/maps/place/TUBERIAS+Y+VALVULAS+DEL+NOROESTE/@29.8919478,-109.4484696,7z/data=!4m8!1m2!2m1!1stuvanosa!3m4!1s0x0:0xdf49d78f28b5a64!8m2!3d31.6428598!4d-106.388855",
 
@@ -120,6 +161,15 @@ const markers = [
       },
     ],
     geocode: [31.6428598, -106.388855],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 4,
@@ -149,6 +199,15 @@ const markers = [
       },
     ],
     geocode: [29.0228214, -110.9103393],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 5,
@@ -166,6 +225,15 @@ const markers = [
       },
     ],
     geocode: [28.6809497, -106.0908508],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 6,
@@ -191,6 +259,15 @@ const markers = [
       },
     ],
     geocode: [27.4310896, -109.9333191],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 7,
@@ -212,6 +289,15 @@ const markers = [
       },
     ],
     geocode: [25.7838169, -100.0449371],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 8,
@@ -237,6 +323,15 @@ const markers = [
       },
     ],
     geocode: [25.7690202, -100.3084541],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 9,
@@ -258,6 +353,15 @@ const markers = [
       },
     ],
     geocode: [25.5879898, -103.3942489],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 10,
@@ -274,6 +378,15 @@ const markers = [
       },
     ],
     geocode: [25.798056868106215, -108.97985461505085],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 11,
@@ -295,6 +408,15 @@ const markers = [
       },
     ],
     geocode: [24.7748882, -107.4779914],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 12,
@@ -311,11 +433,20 @@ const markers = [
       },
     ],
     geocode: [23.225365288605325, -106.3803546611331],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 13,
     ciudad: "S.L. POTOSÍ",
-    type: "sucursal",
+    type: "punto",
     direccion:
       "Calle Cuatro #105, Parque Industrial Millenium C.P:78395. San Luis Potosí, San Luis Potosí.",
     imagen: "/images/MapaTuvanosa/TVN San Luis.webp",
@@ -335,6 +466,15 @@ const markers = [
       },
     ],
     geocode: [22.1059988, -100.9643555],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 14,
@@ -359,6 +499,15 @@ const markers = [
       },
     ],
     geocode: [20.6398527, -103.3339691],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 15,
@@ -376,6 +525,15 @@ const markers = [
       },
     ],
     geocode: [20.5535011, -100.4830703],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 16,
@@ -396,6 +554,15 @@ const markers = [
       },
     ],
     geocode: [18.9186107, -96.999054],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 17,
@@ -421,6 +588,15 @@ const markers = [
       },
     ],
     geocode: [19.3001268, -99.5333862],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 18,
@@ -438,6 +614,15 @@ const markers = [
     ],
 
     geocode: [20.9050041, -101.3908109],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 19,
@@ -454,11 +639,20 @@ const markers = [
       },
     ],
     geocode: [27.925988442390025, -110.9104670940171],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
   {
     id: 20,
     ciudad: "COATZACOALCOS",
-    type: "sucursal",
+    type: "punto",
     direccion:
       "José María Velasco #103 Frida Kalho Alf. Siqueiros Paraíso Fracc., CP. 96523, Coatzacoalcos, Veracruz",
     imagen: "/images/MapaTuvanosa/TVN Fortin.webp",
@@ -470,10 +664,28 @@ const markers = [
       },
     ],
     geocode: [18.132106836221272, -94.43697444936797],
+    horarios: [
+      { dia: "Lunes", horario: "8:00am - 4:00pm" },
+      { dia: "Martes", horario: "8:00am - 4:00pm" },
+      { dia: "Miércoles", horario: "8:00am - 4:00pm" },
+      { dia: "Jueves", horario: "8:00am - 4:00pm" },
+      { dia: "Viernes", horario: "8:00am - 4:00pm" },
+      { dia: "Sábado", horario: "8:00am - 1:30pm" },
+      { dia: "Domingo", horario: "Cerrado" },
+    ],
   },
 ];
-
 function MapaTuvanosa() {
+  const [expanded, setExpanded] = useState(false);
+
+  const handleAccordionChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
+  if (!Array.isArray(markers)) {
+    return <div>Error: markers no está definido o no es un array.</div>;
+  }
+
   return (
     <div className="mapa">
       <div
@@ -487,20 +699,23 @@ function MapaTuvanosa() {
       >
         <div>
           <img
-            src="\images\MapaTuvanosa\sucursales_location.svg"
+            src="/images/MapaTuvanosa/sucursales_location.svg"
             alt="SucursalesIcon"
             style={{
               width: "30px",
               height: "30px",
               float: "left",
               marginRight: "10px",
+              border: "red",
             }}
           />
-          <span>17 Sucursales.</span>
+          <span style={{ color: "black", fontWeight: "400" }}>
+            14 Sucursales.
+          </span>
         </div>
         <div>
           <img
-            src="\images\MapaTuvanosa\puntosventa_location.svg"
+            src="/images/MapaTuvanosa/puntosventa_location.svg"
             alt="PuntosDeVentaIcon"
             style={{
               width: "30px",
@@ -509,11 +724,13 @@ function MapaTuvanosa() {
               marginRight: "10px",
             }}
           />
-          <span>3 Puntos de venta.</span>
+          <span style={{ color: "black", fontWeight: "400" }}>
+            6 Puntos de venta.
+          </span>
         </div>
         <div>
           <img
-            src="\images\MapaTuvanosa\matriz_location.svg"
+            src="/images/MapaTuvanosa/matriz_location.svg"
             alt="CorporativoIcon"
             style={{
               width: "30px",
@@ -522,25 +739,19 @@ function MapaTuvanosa() {
               marginRight: "10px",
             }}
           />
-          <span>1 Corporativo.</span>
+          <span style={{ color: "black", fontWeight: "400" }}>
+            1 Corporativo.
+          </span>
         </div>
       </div>
-      <MapContainer center={[23.22623618480235, -106.3805360936194]} zoom={5}>
+      <MapContainer
+        center={[23.22623618480235, -106.3805360936194]}
+        zoom={5}
+        style={{ height: "100vh", width: "100%" }}
+      >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-
-        <TileLayer
-          attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"
-        />
-
-        <TileLayer
-          attribution="Google Maps"
-          url="http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"
-          maxZoom={20}
-          subdomains={["mt0", "mt1", "mt2", "mt3"]}
         />
 
         {markers.map((marker) => (
@@ -556,33 +767,139 @@ function MapaTuvanosa() {
             }
           >
             <Popup className="popup">
-              {marker.popUp}
               <img
                 src={marker.imagen}
                 style={{
                   width: "100%",
                   height: "150px",
                   display: "block",
-                  borderRadius: "15px",
+                  margin: "auto",
                 }}
                 alt={marker.ciudad}
               />
-              <h3 style={{ textAlign: "center", color: "#07417B" }}>
-                {marker.ciudad}
+              <h3
+                style={{
+                  textAlign: "center",
+                  color: "#07417B",
+                  fontSize: "20px",
+                }}
+              >
+                SUCURSAL {marker.ciudad}
               </h3>
-              <h4>Telefonos</h4>
-              {/* Iterar sobre los teléfonos y mostrar cada uno */}
-              {marker.telefonosOne.map((telefono, index) => (
-                <a href={telefono.tel} key={index} style={{ margin: "0" }}>
-                  <p style={{ margin: "0", color: "#333333" }}>
-                    {telefono.telDesc}{" "}
-                  </p>
-                </a>
-              ))}
-              <h4>Direccion</h4>
-              <p>{marker.direccion}</p>
-              <a href={marker.maps} target="_blank">
-                Como llegar
+              <Accordion
+                style={{ margin: "0px" }}
+                className="accordion-root-fixed"
+                expanded={expanded === `panel1-${marker.id}`}
+                onChange={handleAccordionChange(`panel1-${marker.id}`)}
+              >
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                  className="accordion-summary-fixed"
+                >
+                  <Typography
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      fontFamily: "Raleway",
+                    }}
+                  >
+                    <PhoneIcon style={{ marginRight: "8px" }} /> Teléfonos
+                    Corporativos
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <List>
+                    {marker.telefonosOne.map((telefono, index) => (
+                      <ListItem key={index}>
+                        <ListItemText
+                          primary={
+                            <a
+                              href={telefono.tel}
+                              style={{
+                                color: "#333333",
+                                textDecoration: "none",
+                                fontFamily: "Raleway",
+                              }}
+                            >
+                              {telefono.telDesc}
+                            </a>
+                          }
+                        />
+                      </ListItem>
+                    ))}
+                  </List>
+                </AccordionDetails>
+              </Accordion>
+              <Accordion
+                style={{ margin: "0px" }}
+                className="accordion-root-fixed"
+                expanded={expanded === `panel2-${marker.id}`}
+                onChange={handleAccordionChange(`panel2-${marker.id}`)}
+              >
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2a-content"
+                  id="panel2a-header"
+                  className="accordion-summary-fixed"
+                >
+                  <Typography
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      fontFamily: "Raleway",
+                    }}
+                  >
+                    <QueryBuilderIcon style={{ marginRight: "8px" }} /> Horarios
+                    de Atención
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <List>
+                    {marker.horarios.map((horario, index) => (
+                      <ListItem key={index}>
+                        <ListItemText
+                          primary={`${horario.dia}: ${horario.horario}`}
+                        />
+                      </ListItem>
+                    ))}
+                  </List>
+                </AccordionDetails>
+              </Accordion>
+              <h4
+                style={{
+                  textAlign: "center",
+                  marginTop: "25px",
+                  fontSize: "18px",
+                }}
+              >
+                Dirección
+              </h4>
+              <p
+                style={{
+                  textAlign: "center",
+                  fontSize: "16px",
+                  width: "90%",
+                  margin: "auto",
+                }}
+              >
+                {marker.direccion}
+              </p>
+              <a
+                href={marker.maps}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "block",
+                  textAlign: "center",
+                  marginTop: "20px",
+                  paddingBottom: "20px",
+                  textDecoration: "none",
+                  fontSize: "16px",
+                }}
+              >
+                Cómo llegar
               </a>
             </Popup>
           </Marker>
@@ -591,4 +908,5 @@ function MapaTuvanosa() {
     </div>
   );
 }
+
 export default MapaTuvanosa;

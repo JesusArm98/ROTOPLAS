@@ -5,7 +5,7 @@ import * as yup from "yup";
 
 const contactOptions = [
   { value: "expresate", label: "Expresate" },
-  { value: "sugerencias o quejas", label: "Sugerencias O Quejas" },
+  { value: "sugerencias o quejas", label: "Sugerencias o Quejas" },
   {
     value: "recursos humanos o reclutamiento",
     label: "Recursos Humanos O Reclutamiento",
@@ -67,6 +67,7 @@ export default function ContactForm() {
     control,
     handleSubmit,
     formState: { errors, isValid },
+    reset,
   } = useForm({
     resolver: yupResolver(schema),
     mode: "onChange",
@@ -74,12 +75,14 @@ export default function ContactForm() {
 
   const onSubmit = (data) => {
     console.log(data);
+    reset(); // Aquí llamamos a reset para vaciar los campos del formulario
   };
 
   return (
     <Box
       component="form"
       noValidate
+      id="contacto"
       autoComplete="off"
       onSubmit={handleSubmit(onSubmit)}
       sx={{
@@ -92,14 +95,22 @@ export default function ContactForm() {
       }}
     >
       <h1 style={{ marginTop: "48px", color: "#07417B", fontSize: " 2.25em" }}>
-        Contactanos
+        Contáctanos
       </h1>
       <h2>
         Nos interesa responder tus dudas o inquietudes. No dudes en
         contactarnos.
       </h2>
       <p>Los campos marcados con * son obligatorios.</p>
-      <div style={{ display: "flex", justifyContent: "center", gap: 32 }}>
+      <div
+        style={{
+          width: "90%",
+          display: "flex",
+          justifyContent: "center",
+          gap: 16,
+          flexWrap: "wrap",
+        }}
+      >
         <Controller
           name="Tipo"
           control={control}
@@ -116,11 +127,17 @@ export default function ContactForm() {
               }
               error={!!errors.Tipo}
               sx={{
-                width: "360px",
+                width: {
+                  xs: "100%",
+                  sm: "500px",
+                  md: "367px",
+                  lg: "492px",
+                  xl: "592px",
+                },
                 borderRadius: "8px",
                 "& .MuiOutlinedInput-root": {
                   "& fieldset": {
-                    borderRadius: "25px",
+                    borderRadius: "15px",
                     boxShadow: "rgba(100, 100, 111, 0.3) 0px 7px 29px 0px",
                   },
                 },
@@ -149,11 +166,17 @@ export default function ContactForm() {
               }
               error={!!errors.Nombre}
               sx={{
-                width: "360px",
+                width: {
+                  xs: "100%",
+                  sm: "500px",
+                  md: "367px",
+                  lg: "492px",
+                  xl: "592px",
+                },
                 borderRadius: "8px",
                 "& .MuiOutlinedInput-root": {
                   "& fieldset": {
-                    borderRadius: "25px",
+                    borderRadius: "15px",
                     boxShadow: "rgba(100, 100, 111, 0.3) 0px 7px 29px 0px",
                   },
                 },
@@ -162,7 +185,14 @@ export default function ContactForm() {
           )}
         />
       </div>
-      <div style={{ display: "flex", justifyContent: "center", gap: 16 }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: 16,
+          flexWrap: "wrap",
+        }}
+      >
         <Controller
           name="Correo"
           control={control}
@@ -177,11 +207,51 @@ export default function ContactForm() {
               }
               error={!!errors.Correo}
               sx={{
-                width: "240px",
+                width: {
+                  xs: "90%",
+                  sm: "500px",
+                  md: "239px",
+                  lg: "322px",
+                  xl: "390px",
+                },
                 borderRadius: "8px",
                 "& .MuiOutlinedInput-root": {
                   "& fieldset": {
-                    borderRadius: "25px",
+                    borderRadius: "15px",
+                    boxShadow: "rgba(100, 100, 111, 0.3) 0px 7px 29px 0px",
+                  },
+                },
+              }}
+            />
+          )}
+        />
+
+        <Controller
+          name="Telefono"
+          control={control}
+          defaultValue=""
+          render={({ field }) => (
+            <TextField
+              {...field}
+              label="Telefono"
+              helperText={
+                errors.Telefono
+                  ? errors.Telefono.message
+                  : "Ingresa tu telefono"
+              }
+              error={!!errors.Telefono}
+              sx={{
+                width: {
+                  xs: "90%",
+                  sm: "500px",
+                  md: "239px",
+                  lg: "322px",
+                  xl: "390px",
+                },
+                borderRadius: "8px",
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    borderRadius: "15px",
                     boxShadow: "rgba(100, 100, 111, 0.3) 0px 7px 29px 0px",
                   },
                 },
@@ -205,11 +275,17 @@ export default function ContactForm() {
               }
               error={!!errors.Sucursal}
               sx={{
-                width: "240px",
+                width: {
+                  xs: "90%",
+                  sm: "500px",
+                  md: "239px",
+                  lg: "322px",
+                  xl: "390px",
+                },
                 borderRadius: "8px",
                 "& .MuiOutlinedInput-root": {
                   "& fieldset": {
-                    borderRadius: "25px",
+                    borderRadius: "15px",
                     boxShadow: "rgba(100, 100, 111, 0.3) 0px 7px 29px 0px",
                   },
                 },
@@ -221,33 +297,6 @@ export default function ContactForm() {
                 </MenuItem>
               ))}
             </TextField>
-          )}
-        />
-        <Controller
-          name="Telefono"
-          control={control}
-          defaultValue=""
-          render={({ field }) => (
-            <TextField
-              {...field}
-              label="Telefono"
-              helperText={
-                errors.Telefono
-                  ? errors.Telefono.message
-                  : "Ingresa tu telefono"
-              }
-              error={!!errors.Telefono}
-              sx={{
-                width: "240px",
-                borderRadius: "8px",
-                "& .MuiOutlinedInput-root": {
-                  "& fieldset": {
-                    borderRadius: "25px",
-                    boxShadow: "rgba(100, 100, 111, 0.3) 0px 7px 29px 0px",
-                  },
-                },
-              }}
-            />
           )}
         />
       </div>
@@ -267,13 +316,19 @@ export default function ContactForm() {
             error={!!errors.Mensaje}
             sx={{
               height: "200px",
-              width: "750px",
+              width: {
+                xs: "90%",
+                sm: "500px",
+                md: "750px",
+                lg: "1000px",
+                xl: "1200px",
+              },
               borderRadius: "8px",
 
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
                   height: "200px",
-                  borderRadius: "25px",
+                  borderRadius: "15px",
                   boxShadow: "rgba(100, 100, 111, 0.3) 0px 7px 29px 0px",
                 },
               },

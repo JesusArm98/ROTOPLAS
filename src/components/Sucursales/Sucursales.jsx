@@ -21,20 +21,20 @@ function Sucursales() {
   return (
     <Grid className="sucursales" id="sucursal" container spacing={0}>
       <Grid item xs={12} md={6} style={{ padding: "0" }}>
-        <h1 className="tituloSucursal">Contamos con:</h1>
+        <h1 className="tituloSucursal">Conoce nuestras sucursales</h1>
         <h2
           style={{ fontSize: "1.375em", fontWeight: "300" }}
           className="descSucursal"
         >
-          21 sucursales alrededor de la república, lo que nos permite estar
-          cerca de ti y brindarte un servicio de excelencia.
+          Con 21 locaciones estratégicas, estamos siempre a tu disposición para
+          brindarte el mejor servicio, estés donde estés.
         </h2>
         <button
           style={{ fontFamily: "Raleway" }}
           onClick={handleOpen}
           className="saberMasSuc"
         >
-          Conocer Sucursales
+          Encuentranos
         </button>
         <Dialog open={open} onClose={handleClose} fullWidth maxWidth="lg">
           <DialogContent style={{ padding: "0", width: "100%" }}>

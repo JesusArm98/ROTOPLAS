@@ -20,5 +20,13 @@ swiper {
   object-fit: scale-down;
 }
 
+.landingProduct{
+  margin-top: 105px;
+}
 
+@media screen and (max-width:900px) {
+  .landingProduct{
+    margin-top: 105px;
+  }
+}
   

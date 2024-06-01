@@ -1,1 +1,314 @@
-.areas,.nosotrosBtn{border-right:1px solid #fff}.areas a,.nosotrosBtn a,.tiendaCon a{text-decoration:none}.redes button:hover,.tiendaCon button:hover{background-color:gray;opacity:.3}.footer{width:100%;height:40vh;display:flex;justify-content:center;align-items:center;flex-direction:column}.nosotrosCoord,.seccionLogo{width:100%;height:100%;background-color:#1b1c3c;margin:0;display:flex}.seccionLogo{justify-content:center;align-items:center;cursor:pointer}.seccionLogo img{height:200px}.nosotrosBtn a,.nosotrosBtn button{height:45px;color:#fff;cursor:pointer;font-size:16px}.nosotrosCoord{flex-direction:column;justify-content:space-evenly;align-items:center}.nosotrosBtn{width:80%;height:50%;display:flex;flex-direction:column;align-items:center;justify-content:space-evenly}.nosotrosBtn button{background-color:transparent;border:none;width:300px}.nosotrosBtn a{justify-content:center}.nosotrosBtn img{height:100px;width:100px}.areas button,.redes button,.tiendaCon button{height:45px;background-color:transparent;color:#fff;cursor:pointer}.seccionProov,.seccionTienda{margin:0;width:100%;height:100%;flex-direction:column;display:flex;justify-content:space-evenly;align-items:center;background-color:#1b1c3c}.areas{width:60%;height:50%;display:flex;flex-direction:column;align-items:center;justify-content:space-evenly}.areas button{border:none;width:300px;font-size:16px;display:flex;justify-content:start;align-items:center;padding:5px}.areas button img{max-width:100%;height:auto;padding-right:10px}.tiendaCon{display:flex;justify-content:space-evenly;width:100%}.tiendaCon button{width:120px;border-radius:10px;border:1px solid #fff;justify-content:center;display:flex;align-items:center;padding:5px;transition:.3s}.tiendaCon button:hover{transition:.3s}.redes button,.redes button:hover{transition:background-color .5s,opacity .5s}.tiendaCon button img{max-width:100%;height:auto;padding-right:5px}.contactos{width:60%;height:80%;display:flex;flex-direction:column;align-items:center;justify-content:space-evenly}.redes{width:80%;display:flex;justify-content:space-evenly}.redes button{width:50px;border-radius:50%;border:1px solid #fff}.avisoPrivacidad,.avisoPrivacidad button{height:100%;font-style:italic;background-color:#000}.avisoPrivacidad button{color:#fff;border:none;cursor:pointer}.avisoPrivacidad{margin:0;width:100%;display:flex;justify-content:center;align-items:center}p{text-align:justify}#dialog h3{color:#00699b}@media screen and (min-width:768px) and (max-width:1024px){.contactos{width:60%}.footer{height:20vh}.nosotrosBtn{height:70%;border-right:none}.nosotrosBtn img{height:60px;width:60px}.areas{height:100%;border-right:none}.areas button{justify-content:center}}@media screen and (max-width:767px){.contactos{width:90%}.footer{height:30vh}.nosotrosBtn{height:70%;border-right:none}.nosotrosBtn img{height:60px;width:60px}.areas{height:100%;border-right:none}.areas button{justify-content:center}.seccionLogo img{height:150px}}
+.footer-container .redes a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    color: white;
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+  
+  .footer-container .redes a:hover {
+    background-color: rgba(255, 255, 255, 0.31);
+    border-radius: 30px;
+    transform: scale(0.90);
+  }
+  
+  .areas,
+  .nosotrosBtn {
+    border-right: 1px solid #fff;
+  }
+  
+  .areas a,
+  .nosotrosBtn a,
+  .tiendaCon a {
+    text-decoration: none;
+  }
+  
+  #tienda{
+    border: none;
+  }
+  #tienda:hover{
+    background-color: transparent;
+    transform: scale(1);
+  }
+
+  .redes button:hover,
+  .tiendaCon button:hover {
+    background-color: rgba(255, 255, 255, 0.31);
+    border-radius: 30px;
+    transform: scale(0.90);
+  }
+  
+  .footer {
+    width: 100%;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .nosotrosCoord,
+  .seccionLogo {
+    width: 100%;
+    height: 100%;
+    background-color: #1b1c3c;
+    margin: 0;
+    display: flex;
+  }
+  
+  .seccionLogo {
+    justify-content: right;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .seccionLogo img {
+    max-height: 200px;
+  }
+  
+  .nosotrosBtn a,
+  .nosotrosBtn button {
+    height: 45px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .nosotrosCoord {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .nosotrosBtn {
+    width: 80%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nosotrosBtn button {
+    background-color: transparent;
+    border: none;
+    width: 300px;
+  }
+  
+  .nosotrosBtn a {
+    justify-content: center;
+  }
+  
+  .nosotrosBtn img {
+    height: 100px;
+    width: 100px;
+  }
+  
+  .areas button,
+  .redes button,
+  .tiendaCon button {
+    height: 45px;
+    background-color: transparent;
+    color: white;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .seccionProov,
+  .seccionTienda {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #1b1c3c;
+  }
+  
+  .areas {
+    width: 60%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  .areas button {
+    border: none;
+    width: 300px;
+    font-size: 16px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 5px;
+  }
+  
+  .areas button img {
+    max-width: 100%;
+    height: auto;
+    padding-right: 10px;
+  }
+  
+  .tiendaCon {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+  }
+
+  button{
+    font-family: 'Raleway';
+  }
+  
+  .tiendaCon button {
+    width: 120px;
+
+    border: none;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    transition: 0.3s;
+  }
+  
+  .tiendaCon button:hover {
+    transition: 0.3s;
+  }
+  
+  .redes button,
+  .redes button:hover {
+    transition: background-color 0.5s, opacity 0.5s;
+  }
+  
+  .tiendaCon button img {
+    max-width: 100%;
+    height: auto;
+    padding-right: 5px;
+  }
+  
+  .contactos {
+    width: 80%;
+    height: 80%;
+    margin-right:20%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+  }
+  
+  .redes {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .redes button {
+    width: 50px;
+    border-radius: 50%;
+    border: none;
+  }
+  
+  .avisoPrivacidad,
+  .avisoPrivacidad button {
+    height: 100%;
+    font-style: italic;
+    background-color: #000;
+  }
+  
+  .avisoPrivacidad button {
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .avisoPrivacidad {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  p {
+    text-align: justify;
+  }
+  
+  #dialog h3 {
+    color: #00699b;
+  }
+  
+  @media screen and (min-width: 768px) and (max-width: 900px) {
+    .seccionLogo img {
+      max-height: 150px;
+      min-height: 100px;
+    }
+  .seccionLogo{
+    justify-content: center;
+  }
+    .contactos {
+      width: 60%;
+      margin-right:0
+    }
+  
+    .footer {
+      height: 20vh;
+    }
+  
+    .nosotrosBtn {
+      height: 70%;
+      border-right: none;
+    }
+  
+    .nosotrosBtn img {
+      height: 60px;
+      width: 60px;
+    }
+  
+    .areas {
+      height: 100%;
+      border-right: none;
+    }
+  
+    .areas button {
+      justify-content: center;
+    }
+  }
+  
+  @media screen and (max-width: 767px) {
+    .contactos {
+      width: 90%;
+      margin-right:0
+    }
+  .seccionLogo{
+    justify-content: center;
+  }
+    .footer {
+      height: 30vh;
+    }
+  
+    .nosotrosBtn {
+      height: 70%;
+      border-right: none;
+    }
+  
+    .nosotrosBtn img {
+      height: 60px;
+      width: 60px;
+    }
+  
+    .areas {
+      height: 100%;
+      border-right: none;
+    }
+  
+    .areas button {
+      justify-content: center;
+    }
+  
+    .seccionLogo img {
+      height: 150px;
+    }
+  }
+  

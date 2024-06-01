@@ -20,7 +20,7 @@ const Coordinaciones = () => {
         id="Coordinaciones"
         style={{ marginTop: "48px", color: "#07417B", fontSize: " 2.25em" }}
       >
-        Coordinaciones
+        Especialidades
       </h1>
 
       <h2
@@ -31,8 +31,8 @@ const Coordinaciones = () => {
           fontWeight: "300",
         }}
       >
-        Contamos con más de 200 ingenieros capacitados, que le darán soluciones
-        integrales a sus necesidades a través de nuestras 14 divisiones.
+        Contamos con ingenieros capacitados en dar soluciones integrales a tus
+        necesidades a través de nuestras especialidades.
       </h2>
       <div
         style={{
@@ -57,6 +57,14 @@ const Coordinaciones = () => {
           pagination={{ clickable: true }}
           modules={[EffectCoverflow, Pagination]}
           className="mySwiper"
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            900: {
+              slidesPerView: 3,
+            },
+          }}
         >
           <SwiperSlide>
             <img

@@ -1,24 +1,31 @@
 import Button from "@mui/material/Button";
 import "./Eventos.css";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography, Link } from "@mui/material";
 
 const eventos = [
   {
-    foto: "/images/Eventos/ejemplo_evento1.svg",
-    titulo: "Capacitaciones",
+    estatus: "curso",
+    foto: "/images/Eventos/evento_expopack.webp",
+    titulo: "¡Los esperamos en Expo Pack 2024!",
+
     descripcion:
-      "¡Eleva tu potencial! Adquiere habilidades clave con expertos de primer nivel. ¡Transforma tu futuro con nosotros!",
+      "Tuvanosa estará presente con lo mejor en materiales y equipos, respaldados por calidad, servicio y precios competitivos. ¡Descubre soluciones a medida para tus proyectos en nuestro stand! ¡Los esperamos del 4 a 7 de junio stand #814!.",
   },
   {
-    foto: "/images/Eventos/ejemplo_evento2.svg",
-    titulo: "Exposiciones",
-    descripcion: "Las mejores exposiciones, todo para el manejo de fluidos.",
+    estatus: "proximo",
+    foto: "/images/Eventos/evento_showroom.webp",
+    titulo: "Próximo Showroom",
+    url: "https://forms.gle/VSdPyo5eDU8oqSwu7", // URL dinámica
+    descripcion:
+      "¡Sumérgete en el mundo de la ingeniería con Tuvanosa! Descubre soluciones avanzadas en conducción de fluidos, industrial y pozos en nuestro showroom de Hermosillo. ¡Te esperamos! Este 19 y 20 de Junio en salón de eventos Hotel Hampton inn.",
   },
   {
-    foto: "/images/Eventos/ejemplo_evento3.svg",
-    titulo: "Eventos",
+    estatus: "finalizado",
+    foto: "/images/Eventos/evento_jornada_vinculacion.webp",
+    titulo: "Jornada de Vinculación",
+
     descripcion:
-      "¡Acompáñanos y disfruta de conversaciones enriquecedoras con los expertos más destacados del campo!",
+      "El Instituto Tecnológico de Culiacán llevó a cabo la JORNADA DE VINCULACIÓN con el propósito de fortalecer la relación entre la educación y las empresas, contando con la participación activa de Tuvanosa demostrando su compromiso con el enriquecimiento educativo y el desarrollo profesional.",
   },
 ];
 
@@ -33,19 +40,17 @@ const Eventos = () => {
         backgroundColor: "#F5F5F5",
       }}
     >
-      <h1 style={{ marginTop: "48px", color: "#07417B", fontSize: " 2.25em" }}>
+      <h1 style={{ marginTop: "48px", color: "#07417B", fontSize: "2.25em" }}>
         Últimos eventos
       </h1>
 
       <Box
         sx={{
           display: "flex",
-
           width: "80%",
           marginTop: "32px",
         }}
       >
-        {" "}
         <Grid
           container
           spacing={{ xs: 0, md: 3 }}
@@ -76,19 +81,29 @@ const Eventos = () => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: { sm: "center", xs: "center", md: "normal" },
+                  textAlign: "center", // Agregado para centrar el texto
                 }}
               >
                 <img
                   className="ImagenesEventos"
                   loading="lazy"
                   src={evento.foto}
-                  alt="Eventos"
+                  style={{ height: "auto" }}
+                  alt={evento.titulo} // Alt text for accessibility
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = "/images/Eventos/.jpg";
+                  }} // Default image in case of error
                 />
                 <Box
                   className="EventosContenidos"
                   sx={{
                     width: "80%",
                     marginLeft: { xs: 0, sm: 0, md: "32px" },
+                    height: "360px",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center", // Agregado para centrar el contenido
                   }}
                 >
                   <h2
@@ -96,6 +111,7 @@ const Eventos = () => {
                     style={{
                       fontSize: "24px",
                       color: "#07417B",
+                      textAlign: "center",
                     }}
                   >
                     {evento.titulo}
@@ -103,66 +119,93 @@ const Eventos = () => {
                   <Box
                     style={{
                       width: { xs: "100%", sm: "100%" },
-
-                      height: "152px",
+                      height: "200px",
                       display: "flex",
                       justifyContent: "center",
+                      alignItems: "center", // Agregado para centrar verticalmente
                     }}
                   >
-                    {" "}
                     <Typography
                       className="DescEventos"
-                      variant="p"
+                      variant="body1"
                       sx={{
-                        fontSize: "18px",
-
+                        fontSize: "16px",
                         textAlign: {
                           sm: "justify",
                           sx: "justify",
-                          md: "start",
+                          md: "justify",
                         },
                       }}
                     >
                       {evento.descripcion}
                     </Typography>
                   </Box>
-
-                  <Button
-                    className="BotonEventosSaber"
-                    sx={{
-                      marginBottom: "32px",
-                      borderRadius: "25px",
-                      backgroundColor: "#002C72",
-                      "&:hover": { backgroundColor: "#021E4A" },
-                    }}
-                    variant="contained"
-                    color="primary"
-                  >
-                    Saber más
-                  </Button>
+                  {evento.estatus === "proximo" ? (
+                    <Link
+                      href={evento.url}
+                      target="_blank"
+                      sx={{
+                        marginTop: "auto", // Agregado para empujar el botón al final
+                        textDecoration: "none", // Remover subrayado
+                        width: "100%", // Asegurar que el botón ocupe todo el ancho del contenedor
+                        display: "flex",
+                        justifyContent: "center", // Asegurar que el enlace esté centrado
+                      }}
+                    >
+                      <Button
+                        className="BotonEventosSaber"
+                        sx={{
+                          marginBottom: "32px",
+                          borderRadius: "25px",
+                          display: "flex",
+                          justifyContent: "center",
+                          backgroundColor: "#28a745",
+                          "&:hover": {
+                            backgroundColor: "#218838",
+                          },
+                        }}
+                        variant="contained"
+                        color="primary"
+                      >
+                        Regístrate
+                      </Button>
+                    </Link>
+                  ) : (
+                    <Button
+                      className="BotonEventosSaber"
+                      sx={{
+                        marginTop: "auto",
+                        marginBottom: "32px",
+                        borderRadius: "25px",
+                        display: "flex",
+                        justifyContent: "center",
+                        backgroundColor:
+                          evento.estatus === "curso" ? "red" : "#dc3545",
+                        "&:hover": {
+                          backgroundColor:
+                            evento.estatus === "curso" ? "red" : "#c82333",
+                        },
+                        "&.Mui-disabled": {
+                          color: "white", // color del texto cuando está deshabilitado
+                          backgroundColor:
+                            evento.estatus === "curso" ? "#17A2B8" : "#e0e0e0", // color de fondo cuando está deshabilitado
+                        },
+                      }}
+                      variant="contained"
+                      color="primary"
+                      disabled={true}
+                    >
+                      {evento.estatus === "curso"
+                        ? "Próximamente"
+                        : "Finalizado"}
+                    </Button>
+                  )}
                 </Box>
               </Box>
             </Grid>
           ))}
         </Grid>
       </Box>
-      <Button
-        sx={{
-          borderRadius: "25px",
-          backgroundColor: "#002C72",
-          "&:hover": { backgroundColor: "#021E4A" },
-
-          marginTop: "78px",
-          fontFamily: "Raleway",
-          textTransform: "none",
-          fontSize: "1.25em",
-          marginBottom: "58px",
-        }}
-        variant="contained"
-        color="primary"
-      >
-        Leer más noticias
-      </Button>
     </div>
   );
 };

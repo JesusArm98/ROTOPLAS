@@ -1,9 +1,11 @@
-.carousel-image {
-    filter: grayscale(100%); 
-    transition: filter 0.3s ease; 
-  }
-  
-  .carousel-image:hover {
-    filter: none; 
+  @media screen and (min-width:901px) {
+    .carousel-image {
+      filter: grayscale(100%); 
+      transition: filter 0.3s ease; 
+    }
+    
+    .carousel-image:hover {
+      filter: none; 
+    }
   }
   
