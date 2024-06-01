@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- AGREGAR EN EL HEAD: -->
 
 <!DOCTYPE html>
@@ -86,3 +87,7 @@
 </html>
 
 <!-- FIN AGREGAR EN HEADER -->
+=======
+# ROTOPLAS
+TVN-ROTOPLAS
+>>>>>>> 0d6a9aab803c9d9618383268cec4e484d9e74046
